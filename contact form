@@ -1,0 +1,32 @@
+<h3>Contact Form</h3>
+<p> Fill out our form to allow us to assist you in a more timely and personal manner!</p>
+
+<div class="container">
+  <table>
+  <tr>
+  <td>
+  <form action="/action_page.php">
+    <label for="fname"> First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.."></br>
+
+    <label for="lname"> Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+
+    <label for="Topic">Topic</label>
+    <select id="Topic" name="Subject">
+      <option value="Question">Question</option>
+      <option value="Comment">Comment</option>
+      <option value="Idea">Idea</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="Comments">Comments</label>
+    <textarea id="Comments" name="Comments" placeholder="Write something..." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit"><a href="https://mail.google.com/mail/u/0/#inbox"></a><br/>
+  </form>
+  </td>
+  </tr>
+  </table>
+</div>

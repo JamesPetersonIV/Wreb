@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Contact Page
+</title>
+
+<head>
+<script>
+function validateForm() 
+{
+  var x = document.forms["myForm"]["firstname"]["lastname"]["subject"]["country"].value;
+  if (x == "") 
+  {
+    alert("Fill in");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+</script>
+<style>
+ul
+{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  width: 200px;
+  height:100%;    /*makes nav fit screen*/
+  background-color: #bb9a6e;
+  opacity: .5;
+  position:fixed; /*make it stick*/
+  overflow:auto; /*enable scroll*/
+}
+li a
+{
+  display:block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size:115%;
+  font-family:"Comic Sans MS";
+}
+li a:hover  /* Change the link color on hover */
+{
+  background-color: #555555;
+  color:white;
+}     
+p.c
+{
+word-spacing:5.5in; 
+
+}
+footer
+{
+  display:block;
+  background-color:#bb9a6e;
+  opacity: .5;
+  position: absolute;
+  left:0;
+  bottom:0;
+  text-indent:6%;
+}
+#page-container                /*goes around everything on the page*/
+{
+  position: relative;
+  min-height: 0vh;
+  min-width:0vh;
+}
+#content-wrap 
+{
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+#footer 
+{
+  position: absolute;
+  bottom: 0;
+  width: 99.7%;
+  height: 4rem;            /* Footer height aka thickness */
+  left:1.65%;                /*move footer over*/
+  top:100%;
+}
+table
+{
+  position: sticky;
+} 
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea 
+{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover 
+{
+  background-color: #45a049;
+}
+.con
+{
+  color: #bb9a6e;
+  font-family: "Comic Sans MS";
+}
+</style>
+
+</head>
+
+<body>
+<div>    
+<ul>
+            
+<li><a href="Untitled-1.html">Home</a></li>
+            
+<li><a href="new.html">News</a></li>
+            
+<li><a href="contact.html">Contact</a></li>
+            
+<li><a href="products.html">Products</a></li>
+            
+<li><a href="Materials.html">Materials</a></li>
+    
+</ul>
+</div>
+<div style="margin-left:8.2%; padding:1px 16px; height:1000px;">
+</head>
+
+<body style="background-color:beige;">
+<div class="con">
+  <table cellspacing="20">
+  <tr>
+  <td cellspacing="300px"></td>
+  <td>
+      <h1>Contact Us</h1>
+      <h2></h2>
+          
+      <p>Have any questions, comments, concerns or ideas? Feel free to contact us and we'll be sure to help you out!</p>
+          
+      <h3>Contact Information</h3>
+          
+      <p>Address:1601 S Martin Luther King Jr Blvd, Tallahassee, FL 32307</p>
+      
+      <img src="Famu.jpg"width=600 height=600/>
+          
+      <p>Phone:855-261-7924
+      Ext:244</p>
+      
+      <p>Email:Wrebenvirosafe@gmail.com</p>
+      <p>Instagram:WeAreWreb</p>
+      <p>Facebook:WeAreWreb</p>
+      <p>Twitter:WrebEnviroSafe</p>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1">  
+  </td>
+  <td>
+      <form name="myForm" action="mailto:petersonivjames@gmail.com" onsubmit="return validateForm()" method="post" enctype="text/plain">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" value="send">
+      </form>
+  </td>
+  </tr>
+  </table>
+</div>
+<div id="page-container">     
+  <div id="content-wrap">
+    <!-- all other page content -->
+  </div>
+  <footer id="footer">
+      <pre font size="4"><color="beige">&#169 2019 WREB &#8226 <a href="contact.html">Contact</a>                                     <a href="https://www.linkedin.com/in/james-peterson-iv-8a0816197"><img src="link.png" height="30" width="30"></img></a> <a href="https://www.facebook.com/LIL.Florida"><img src="fb.png" valign="top" height="30" width="30"></img></a>                                                           <a href=""><img src="link.png" height="30" width="30"></img></a> <a href=""><img src="fb.png" valign="top" height="30" width="30"></img></a>
+      </pre>
+  </footer>
+</div>
+<!-Contact form code used from W3schools.com->
+<p>
+</p>
+
+
+</body>
+
+</html>
