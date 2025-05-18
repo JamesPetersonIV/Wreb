@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
     <title>News</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        /* Sidebar nav */
-        ul {
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            font-family: "Comic Sans MS";
+        }
+
+        /* Sidebar styles */
+        .sidebar {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -21,9 +30,10 @@
             top: 0;
             left: 0;
             overflow-y: auto;
+            z-index: 1040;
         }
 
-        li a {
+        .sidebar li a {
             display: block;
             color: #000;
             padding: 8px 16px;
@@ -32,20 +42,14 @@
             font-family: "Comic Sans MS";
         }
 
-        li a:hover {
+        .sidebar li a:hover,
+        .sidebar li a.active {
             background-color: #555555;
             color: white;
         }
 
-        body {
-            margin: 0;
-            background-color: beige;
-            font-family: "Comic Sans MS";
-        }
-
-        /* Layout wrapper */
         .page-wrapper {
-            margin-left: 200px; /* room for sidebar */
+            margin-left: 200px; /* space for sidebar */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -60,6 +64,7 @@
             background-color: #bb9a6e;
             opacity: 0.5;
             padding: 10px 20px;
+            width: 100%;
         }
 
         .footer-content {
@@ -80,7 +85,7 @@
             color: black;
         }
 
-        h1, h2, p {
+        h1, h2, h4, h5, p {
             color: #ab8964;
         }
 
@@ -89,14 +94,52 @@
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 20px;
+            vertical-align: top;
+            text-align: center;
+            color: #bb9a6e;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767.98px) {
+            ul.sidebar {
+                display: none;
+            }
+
+            .page-wrapper {
+                margin-left: 0;
+            }
+
+            footer {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <body>
+      <!-- Hamburger Button (visible on mobile) -->
+    <div class="d-md-none p-2">
+      <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+        <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+      </button>
+    </div>
 
-    <!-- Sidebar nav -->
-    <ul>
+    <!-- Desktop fixed sidebar -->
+    <ul class="sidebar d-none d-md-block">
         <li><a href="Untitled-1.html">Home</a></li>
         <li><a href="new.html">News</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -104,7 +147,24 @@
         <li><a href="Materials.html">Materials</a></li>
     </ul>
 
-    <!-- Main content and footer -->
+    <!-- Mobile Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel" style="background-color:beige;">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="background-color:beige;">
+            <ul class="list-unstyled">
+                <li><a href="Untitled-1.html" class="d-block py-2">Home</a></li>
+                <li><a href="new.html" class="d-block py-2">News</a></li>
+                <li><a href="contact.html" class="d-block py-2">Contact</a></li>
+                <li><a href="products.html" class="d-block py-2">Products</a></li>
+                <li><a href="Materials.html" class="d-block py-2">Materials</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="d-flex justify-content-center align-items-center flex-wrap gap-3 text-center w-100">
+    <!-- Page content -->
     <div class="page-wrapper">
         <div class="content-wrap">
             <center><h1>Latest News</h1></center>
@@ -113,55 +173,49 @@
                 and ways you can participate in reducing plastic waste. Stay tuned!
             </p>
 
-            <table cellspacing="40" border="1">
-                <tr valign="top">
-                    <td style="text-align:left">
-                        <p align="center">
-                            <a href="https://www.biologicaldiversity.org/programs/population_and_sustainability/sustainability/plastic_bag_facts.html">
-                                <img src="PlasticBag_Flickr_minustide.jpg" height="400" width="300" alt="Plastic Bag"></img></a><br>
-                        </p>
+            <table border="1">
+                <tr>
+                    <td>
+                        <a href="https://www.biologicaldiversity.org/programs/population_and_sustainability/sustainability/plastic_bag_facts.html">
+                            <img src="PlasticBag_Flickr_minustide.jpg" alt="Plastic Bag" />
+                        </a>
                         <h5>THE PROBLEM WITH PLASTIC BAGS</h5>
                         <p>Plastic bags start out as fossil fuels and end up as deadly waste in landfills and the ocean.</p>
                     </td>
-                    <td style="text-align:left">
-                        <p align="center">
-                            <a href="https://www.nationalgeographic.com/environment/2019/04/plastic-bag-bans-kenya-to-us-reduce-pollution/">
-                                <img src="nation.png" height="400" width="300" alt="National Geographic"></img></a>
-                        </p>
+                    <td>
+                        <a href="https://www.nationalgeographic.com/environment/2019/04/plastic-bag-bans-kenya-to-us-reduce-pollution/">
+                            <img src="nation.png" alt="National Geographic" />
+                        </a>
                         <h4>Plastic bag bans are spreading. But are they truly effective?</h4>
                         <p>This article was created in partnership with the National Geographic Society to raise awareness about marine plastic pollution.</p>
                     </td>
-                    <td style="text-align:left">
-                        <p align="center">
-                            <a href="http://plastic-pollution.org">
-                                <img src="andaman.jpg" height="400" width="300" alt="Plastic Pollution"></img></a><br>
-                        </p>
+                    <td>
+                        <a href="http://plastic-pollution.org">
+                            <img src="andaman.jpg" alt="Plastic Pollution" />
+                        </a>
                         <h5>WHEN THE MERMAIDS CRY: THE GREAT PLASTIC TIDE</h5>
                         <p>The world population is living, working, and vacationing along the coasts, facing the greatest plastic waste tide ever.</p>
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align:left">
-                        <p align="center">
-                            <a href="https://www.unenvironment.org/interactive/beat-plastic-pollution/">
-                                <img src="header_bottle.jpg" height="400" width="300" alt="World Environment Day"></img></a><br>
-                        </p>
+                    <td>
+                        <a href="https://www.unenvironment.org/interactive/beat-plastic-pollution/">
+                            <img src="header_bottle.jpg" alt="World Environment Day" />
+                        </a>
                         <h4>This World Environment Day, it's time for a change</h4>
                         <p>While plastic has many valuable uses, we have become addicted to single-use plastic, with severe environmental consequences.</p>
                     </td>
-                    <td style="text-align:left">
-                        <p align="center">
-                            <a href="https://www.bizjournals.com/boston/news/2019/11/18/mass-senate-to-vote-on-statewide-plastic-bag-ban.html">
-                                <img src="mavote.png" height="400" width="300" alt="Massachusetts Vote"></img></a><br>
-                        </p>
+                    <td>
+                        <a href="https://www.bizjournals.com/boston/news/2019/11/18/mass-senate-to-vote-on-statewide-plastic-bag-ban.html">
+                            <img src="mavote.png" alt="Massachusetts Vote" />
+                        </a>
                         <h4>Mass. Senate to vote on statewide plastic bag ban</h4>
                         <p>The Massachusetts Senate will vote Wednesday on a statewide ban on stores providing single-use plastic bags.</p>
                     </td>
-                    <td style="text-align:left">
-                        <p align="center">
-                            <a href="https://www.nationalgeographic.com/environment/2019/03/new-york-state-plastic-bag-ban-explained/">
-                                <img src="nybag.png" height="400" width="300" alt="New York Bag Ban"></img></a><br>
-                        </p>
+                    <td>
+                        <a href="https://www.nationalgeographic.com/environment/2019/03/new-york-state-plastic-bag-ban-explained/">
+                            <img src="nybag.png" alt="New York Bag Ban" />
+                        </a>
                         <h4>New York State to ban plastic bags - here's why</h4>
                         <p>A new state budget is taking aim at single-use bags in an effort to reduce pollution, though exceptions will be allowed.</p>
                     </td>
@@ -169,20 +223,25 @@
             </table>
         </div>
 
+        <!-- Footer -->
         <footer>
             <div class="footer-content">
                 <div class="footer-left">
                     <span>&copy; 2019 WREB &#8226;</span>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-right">
-                    <a href="https://www.linkedin.com/in/james-peterson-iv-8a0816197"><img src="link.png" height="30" width="30" alt="LinkedIn"></a>
-                    <a href="https://www.facebook.com/LIL.Florida"><img src="fb.png" height="30" width="30" alt="Facebook"></a>
+                      <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-right">
+                      <a href="https://www.linkedin.com/in/james-peterson-iv-8a0816197">
+                        <img src="link.png" height="30" width="30" alt="LinkedIn">
+                      </a>
+                      <a href="https://www.facebook.com/LIL.Florida">
+                        <img src="fb.png" height="30" width="30" alt="Facebook">
+                      </a>
                 </div>
             </div>
         </footer>
     </div>
-
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
   <title>Products</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (for hamburger) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    /* Left-side fixed navbar */
-    ul {
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: beige;
+      font-family: "Comic Sans MS";
+    }
+
+    .sidebar {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -20,26 +30,20 @@
       top: 0;
       left: 0;
       overflow-y: auto;
+      z-index: 1000;
     }
 
-    li a {
+    .sidebar li a {
       display: block;
       color: #000;
       padding: 8px 16px;
       text-decoration: none;
       font-size: 120%;
-      font-family: "Comic Sans MS";
     }
 
-    li a:hover {
-      background-color: #555555;
+    .sidebar li a:hover {
+      background-color: #555;
       color: white;
-    }
-
-    body {
-      margin: 0;
-      background-color: beige;
-      font-family: "Comic Sans MS";
     }
 
     .page-wrapper {
@@ -58,6 +62,7 @@
       background-color: #bb9a6e;
       opacity: 0.5;
       padding: 10px 20px;
+      width: 100%;
     }
 
     .footer-content {
@@ -73,41 +78,51 @@
       gap: 15px;
     }
 
-    .footer-left a, .footer-right a {
-      text-decoration: none;
-      color: black;
+    h1, h2, .product-name, .desc {
+      color: #ab8964;
     }
 
-    h1, p, td {
-      color: #bb9a6e;
-    }
-
-    h1 {
+    h1, h2 {
       font-size: 2rem;
     }
 
-    p {
-      font-size: 1.25rem;
+    .product-name {
+      font-size: 1.5rem;
     }
 
-    table {
-      font-size: 1.75rem;
+    .desc {
+      font-size: 1.2rem;
     }
 
-    td {
-      text-align: center;
+    /* Mobile override for sidebar */
+    @media (max-width: 767.98px) {
+      .sidebar {
+        display: none;
+      }
+
+      .page-wrapper {
+        margin-left: 0;
+      }
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
+    /* Table/product card overrides if needed */
+    table, th, td {
+      background-color: beige !important;
+      color: #ab8964;
     }
   </style>
 </head>
 <body>
 
-  <!-- Fixed sidebar -->
-  <ul>
+  <!-- Hamburger Button (mobile only) -->
+  <div class="d-md-none p-2">
+    <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
+      <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+    </button>
+  </div>
+
+  <!-- Fixed Sidebar for Desktop -->
+  <ul class="sidebar d-none d-md-block">
     <li><a href="Untitled-1.html">Home</a></li>
     <li><a href="new.html">News</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -115,7 +130,24 @@
     <li><a href="Materials.html">Materials</a></li>
   </ul>
 
-  <!-- Main content area -->
+  <!-- Offcanvas Sidebar for Mobile -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel" style="color: #ab8964;">
+    <div class="offcanvas-header" style="background-color:beige;">
+      <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body" style="background-color:beige;">
+      <ul class="list-unstyled">
+        <li><a href="Untitled-1.html" class="d-block py-2">Home</a></li>
+        <li><a href="new.html" class="d-block py-2">News</a></li>
+        <li><a href="contact.html" class="d-block py-2">Contact</a></li>
+        <li><a href="products.html" class="d-block py-2">Products</a></li>
+        <li><a href="Materials.html" class="d-block py-2">Materials</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main content + footer container -->
   <div class="page-wrapper">
     <div class="content-wrap">
       <div class="text-center">
@@ -135,7 +167,7 @@
       <table class="table table-borderless text-center align-middle">
         <tbody>
           <tr>
-            <td>Biege</td>
+            <td>Beige</td>
             <td><img src="wreb folded.png" width="200" height="200" alt="Beige Bag" /></td>
             <td><img src="coming soon.png" width="250" height="250" alt="Coming Soon" /></td>
           </tr>
@@ -157,24 +189,27 @@
         </tbody>
       </table>
     </div>
-
+    
     <!-- Footer -->
     <footer>
-      <div class="footer-content">
+      <div class="footer-content container-fluid">
         <div class="footer-left">
           <span>&copy; 2019 WREB &#8226;</span>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-right">
-          <a href="https://www.linkedin.com/in/james-peterson-iv-8a0816197"><img src="link.png" height="30" width="30" alt="LinkedIn" /></a>
-          <a href="https://www.facebook.com/LIL.Florida"><img src="fb.png" height="30" width="30" alt="Facebook" /></a>
-          <a href="#"><img src="link.png" height="30" width="30" alt="LinkedIn Placeholder" /></a>
-          <a href="#"><img src="fb.png" height="30" width="30" alt="Facebook Placeholder" /></a>
+          <a href="https://www.linkedin.com/in/james-peterson-iv-8a0816197">
+            <img src="link.png" height="30" width="30" alt="LinkedIn">
+          </a>
+          <a href="https://www.facebook.com/LIL.Florida">
+            <img src="fb.png" height="30" width="30" alt="Facebook">
+          </a>
         </div>
       </div>
     </footer>
   </div>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
